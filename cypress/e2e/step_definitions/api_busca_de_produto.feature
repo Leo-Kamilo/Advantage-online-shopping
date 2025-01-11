@@ -4,7 +4,6 @@ Feature: Buscar por produto via API
   Para validar os dados do produto
 
   Scenario: Buscar um produto existente pelo ID
-    Given que eu tenha um token de autenticação válido
     When eu buscar pelo produto com o ID "wkbH2ev7l7qhY2TR"
     Then o status da resposta deve ser 200
     And o retorno deve conter os dados esperados
