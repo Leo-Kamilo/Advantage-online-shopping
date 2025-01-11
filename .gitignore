@@ -1,0 +1,36 @@
+# Node modules
+node_modules/
+
+# Cypress
+cypress/videos/
+cypress/screenshots/
+
+# Diretórios de build e distribuição
+dist/
+build/
+
+# Arquivos de log
+*.log
+
+# Arquivos de configuração temporários
+cypress/.cache/
+
+# Arquivos específicos do ambiente de desenvolvimento
+.env
+.env.local
+.env.*.local
+
+# Arquivos de configurações do VS Code
+.vscode/
+
+# Sistema de cache do npm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependências instaladas globalmente
+node_modules/
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
