@@ -5,7 +5,6 @@ let response;
 let randomNumber;
 
 Given("que eu tenha um token de autenticação válido", () => {
-  // Realiza a requisição para obter o token dinamicamente
   cy.request({
     method: 'POST',
     url: `${baseUrl}/login`,
@@ -13,21 +12,18 @@ Given("que eu tenha um token de autenticação válido", () => {
       'Content-Type': 'application/json',
     },
     body: {
-      email: 'leonardo.camilo@teste.com',
-      password: 'Api@2025',
+      email: Cypress.env('email'),
+      password: Cypress.env('password'),
     },
   }).then((loginResponse) => {
-    // Verifica se a resposta foi bem-sucedida
     expect(loginResponse.status).to.eq(200);
-    const token = loginResponse.body.authorization.split(" ")[1]; // Pega o token
-
-    // Armazena o token para ser usado posteriormente
+    const token = loginResponse.body.authorization.split(" ")[1];
     cy.wrap(token).as('token');
   });
 
-  // Gerando número aleatório
-  randomNumber = Math.floor(10000000 + Math.random() * 90000000); // Gera um número entre 10000000 e 99999999
+  randomNumber = Math.floor(10000000 + Math.random() * 90000000);
 });
+
 
 When("eu atualizar o produto com o ID {string}", (produtoId) => {
   // Espera o token ser obtido antes de continuar com a atualização do produto
